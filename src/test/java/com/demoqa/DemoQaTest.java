@@ -1,16 +1,9 @@
 package com.demoqa;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.selector.ByText;
-import com.demoqa.data.Gender;
-import com.demoqa.data.User;
 import org.junit.jupiter.api.BeforeAll;
 
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
-import org.openqa.selenium.Keys;
-
-import java.util.*;
 
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
@@ -25,7 +18,6 @@ public class DemoQaTest {
         Configuration.holdBrowserOpen = true;
         Configuration.browserSize = "1920x1080";
     }
-
 
     @Test
     void fillFormTest() {
