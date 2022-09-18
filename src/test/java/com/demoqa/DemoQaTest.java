@@ -5,10 +5,11 @@ import org.junit.jupiter.api.BeforeAll;
 import com.codeborne.selenide.Configuration;
 import org.junit.jupiter.api.Test;
 
+import java.io.File;
+
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selectors.byText;
-import static com.codeborne.selenide.Selenide.$;
-import static com.codeborne.selenide.Selenide.open;
+import static com.codeborne.selenide.Selenide.*;
 
 public class DemoQaTest {
 
@@ -24,6 +25,9 @@ public class DemoQaTest {
 
         open("/automation-practice-form");
 
+        executeJavaScript("$('footer').remove()");
+        executeJavaScript("$('#fixedban').remove()");
+
         $("#firstName").setValue("Ivan");
         $("#lastName").setValue("Ivanov");
         $("#userEmail").setValue("ivan.ivanov@mail.ru");
@@ -37,6 +41,7 @@ public class DemoQaTest {
 
         $("#subjectsInput").setValue("English").pressEnter();
         $("#hobbiesWrapper").$(byText("Sports")).click();
+        $("#uploadPicture").uploadFile(new File("src/test/resources/images/avatar.jpg"));
         $("#currentAddress").setValue("SPB");
         $("#state").click();
         $(byText("Uttar Pradesh")).click();
